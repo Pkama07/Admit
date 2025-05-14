@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = RestrictionViewModel()
+    @EnvironmentObject private var viewModel: RestrictionViewModel
     @State private var showAddRestriction = false
     
     var body: some View {

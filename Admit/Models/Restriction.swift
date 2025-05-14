@@ -18,6 +18,22 @@ struct Restriction: Identifiable, Codable {
     static func validateCooldownTime(_ time: Int) -> Bool {
         return time >= 5 && time <= 15
     }
+    
+    var isOverLimit: Bool {
+        return usedTime >= timeLimit
+    }
+    
+    var formattedUsedTime: String {
+        return "\(usedTime) minutes used today"
+    }
+    
+    var remainingTime: Int {
+        return max(0, timeLimit - usedTime)
+    }
+    
+    var formattedRemainingTime: String {
+        return "\(remainingTime) minutes remaining"
+    }
 }
 
 extension Restriction {
