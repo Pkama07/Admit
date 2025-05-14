@@ -77,8 +77,26 @@ struct RestrictionDetailView: View {
                     HStack {
                         Image(systemName: "chart.bar")
                             .foregroundColor(.blue)
-                        Text("0 minutes used today")
+                        Text(restriction.formattedUsedTime)
                             .font(.body)
+                    }
+                    
+                    if restriction.isOverLimit {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(.red)
+                            Text("Daily limit exceeded")
+                                .foregroundColor(.red)
+                                .font(.subheadline)
+                        }
+                    } else {
+                        HStack {
+                            Image(systemName: "timer")
+                                .foregroundColor(.green)
+                            Text(restriction.formattedRemainingTime)
+                                .font(.subheadline)
+                                .foregroundColor(.green)
+                        }
                     }
                     
                     Text("Track your usage to stay within your daily limits.")
