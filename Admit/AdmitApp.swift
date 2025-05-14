@@ -12,6 +12,8 @@ struct AdmitApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                }
         }
     }
 }
